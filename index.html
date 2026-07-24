@@ -87,16 +87,6 @@
   <!-- Иконки -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-  <link
-    rel="preload"
-    as="image"
-    type="image/webp"
-    href="images/hero-astronaut-full.webp"
-    imagesrcset="images/hero-astronaut-full.webp 497w, images/hero-astronaut-full@2x.webp 994w"
-    imagesizes="(max-width: 767px) 82vw, 833px"
-    fetchpriority="high"
-  />
-
   <!-- Верификация поисковиков: раскомментируйте и вставьте свои коды
   <meta name="google-site-verification" content="XXXX" />
   <meta name="yandex-verification" content="XXXX" />
@@ -204,17 +194,15 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Bebas+Neue&family=Playfair+Display:ital@1&display=swap"
-    rel="stylesheet"
-    media="print"
-    onload="this.media='all'"
-  />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Bebas+Neue&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
-  </noscript>
+  <style>
+    @font-face {
+      font-family: 'Space Grotesk';
+      src: url('fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+      font-weight: 300 700;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
   <script>
     (function () {
       var stored = localStorage.getItem('bb-theme');
@@ -229,9 +217,9 @@
       --bg: #171720;
       --bg2: #1E1E27;
       --bg-card: #25252E;
-      --accent: #2A1AFF;
-      --accent2: #6B59FF;
-      --accent-glow: rgba(42, 26, 255, 0.25);
+      --accent: #9580FF;
+      --accent2: #9580FF;
+      --accent-glow: rgba(149, 128, 255, 0.25);
       --white: #FFFFFF;
       --text: #FFFFFF;
       --text-soft: rgba(255, 255, 255, 0.80);
@@ -240,25 +228,25 @@
       --white40: rgba(255, 255, 255, 0.40);
       --white08: rgba(255, 255, 255, 0.08);
       --border: rgba(255, 255, 255, 0.07);
-      --gradient: linear-gradient(90deg, #2A1AFF, #FF1247);
+      --gradient: linear-gradient(90deg, #9580FF, #FF1247);
       --nav-bg: rgba(23, 23, 32, 0.55);
-      --section-alt-bg: rgba(255, 255, 255, 0.02);
+      --section-alt-bg: transparent;
       --footer-bg: rgba(255, 255, 255, 0.02);
       --glass-bg: rgba(255, 255, 255, 0.05);
       --glass-bg-strong: rgba(255, 255, 255, 0.08);
       --glass-border: rgba(255, 255, 255, 0.14);
       --glass-blur: blur(18px) saturate(150%);
       --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-      --backdrop-a: rgba(42, 26, 255, 0.245);
+      --backdrop-a: rgba(149, 128, 255, 0.245);
       --backdrop-b: rgba(255, 18, 71, 0.182);
-      --backdrop-c: rgba(42, 26, 255, 0.182);
+      --backdrop-c: rgba(149, 128, 255, 0.182);
       --backdrop-d: rgba(107, 89, 255, 0.154);
       --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='rgba(255,255,255,0.4)' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
       --grid-color: rgba(255, 255, 255, 0.05);
       --deco-stroke: rgba(255, 255, 255, 0.18);
       --deco-stroke-muted: rgba(255, 255, 255, 0.10);
       --deco-dot: rgba(255, 255, 255, 0.34);
-      --deco-fill: rgba(42, 26, 255, 0.17);
+      --deco-fill: rgba(149, 128, 255, 0.17);
       --deco-fill-2: rgba(255, 18, 71, 0.14);
       --surface-tint: rgba(255, 255, 255, 0.04);
       --chip-bg: rgba(255, 255, 255, 0.06);
@@ -266,7 +254,7 @@
       --shard-face: rgba(255, 255, 255, 0.22);
       --shard-edge: rgba(155, 148, 255, 0.35);
       --shard-stroke: rgba(255, 255, 255, 0.28);
-      --shard-glow: rgba(42, 26, 255, 0.40);
+      --shard-glow: rgba(149, 128, 255, 0.40);
       --star-dim: rgba(255, 255, 255, 0.18);
       --star-mid: rgba(255, 255, 255, 0.42);
       --star-bright: rgba(255, 255, 255, 0.78);
@@ -279,7 +267,7 @@
       --hero-window-shadow: 0 8px 32px rgba(15, 16, 24, 0.10), 0 2px 8px rgba(15, 16, 24, 0.05);
       --hero-window-text: #171720;
       --hero-window-muted: rgba(12, 12, 15, 0.7);
-      --hero-window-accent: #2D1EFF;
+      --hero-window-accent: #9580FF;
     }
 
     [data-theme="light"] {
@@ -287,9 +275,9 @@
       --bg: #E8E9F0;
       --bg2: #DEDFE8;
       --bg-card: #F7F7FB;
-      --accent: #2E1FFF;
-      --accent2: #4228FF;
-      --accent-glow: rgba(37, 16, 240, 0.26);
+      --accent: #9580FF;
+      --accent2: #9580FF;
+      --accent-glow: rgba(149, 128, 255, 0.26);
       --white: #FFFFFF;
       --text: #0F1018;
       --text-soft: rgba(15, 16, 24, 0.86);
@@ -298,25 +286,25 @@
       --white40: rgba(15, 16, 24, 0.52);
       --white08: rgba(15, 16, 24, 0.08);
       --border: rgba(15, 16, 24, 0.12);
-      --gradient: linear-gradient(90deg, #2E1FFF, #FF245B);
+      --gradient: linear-gradient(90deg, #9580FF, #FF245B);
       --nav-bg: rgba(232, 233, 240, 0.88);
-      --section-alt-bg: rgba(15, 16, 24, 0.055);
+      --section-alt-bg: transparent;
       --footer-bg: rgba(15, 16, 24, 0.06);
       --glass-bg: rgba(247, 247, 251, 0.92);
       --glass-bg-strong: #FFFFFF;
       --glass-border: rgba(15, 16, 24, 0.14);
       --glass-blur: blur(18px) saturate(140%);
       --glass-shadow: 0 10px 28px rgba(15, 16, 24, 0.10), 0 2px 8px rgba(15, 16, 24, 0.05);
-      --backdrop-a: rgba(37, 16, 240, 0.203);
+      --backdrop-a: rgba(149, 128, 255, 0.203);
       --backdrop-b: rgba(255, 24, 73, 0.140);
-      --backdrop-c: rgba(37, 16, 240, 0.140);
+      --backdrop-c: rgba(149, 128, 255, 0.140);
       --backdrop-d: rgba(46, 30, 255, 0.119);
       --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='rgba(15,16,24,0.5)' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
       --grid-color: rgba(15, 16, 24, 0.08);
       --deco-stroke: rgba(15, 16, 24, 0.26);
       --deco-stroke-muted: rgba(15, 16, 24, 0.15);
       --deco-dot: rgba(15, 16, 24, 0.30);
-      --deco-fill: rgba(37, 16, 240, 0.20);
+      --deco-fill: rgba(149, 128, 255, 0.20);
       --deco-fill-2: rgba(255, 24, 73, 0.17);
       --surface-tint: #D8DAE6;
       --chip-bg: #DCDFEA;
@@ -324,7 +312,7 @@
       --shard-face: rgba(255, 255, 255, 0.75);
       --shard-edge: rgba(79, 70, 229, 0.28);
       --shard-stroke: rgba(15, 16, 24, 0.14);
-      --shard-glow: rgba(37, 16, 240, 0.30);
+      --shard-glow: rgba(149, 128, 255, 0.30);
       --star-dim: rgba(0, 0, 0, 0.16);
       --star-mid: rgba(0, 0, 0, 0.34);
       --star-bright: rgba(0, 0, 0, 0.56);
@@ -337,12 +325,12 @@
       --hero-window-shadow: 0 8px 32px rgba(15, 16, 24, 0.10), 0 2px 8px rgba(15, 16, 24, 0.05);
       --hero-window-text: #0C0C0F;
       --hero-window-muted: rgba(12, 12, 15, 0.7);
-      --hero-window-accent: #2D1EFF;
+      --hero-window-accent: #9580FF;
     }
 
     :root {
       --font-display: 'Space Grotesk', system-ui, sans-serif;
-      --font-body: 'Inter', system-ui, sans-serif;
+      --font-body: 'Space Grotesk', system-ui, sans-serif;
       --nav-h: 56px;
       --hero-top-gap: calc(60px / 1.75);
       --astro-fly-speed: 0.72;
@@ -456,6 +444,7 @@
       transform: translateX(-50%);
     }
     .deco-diamond {
+      display: none;
       position: absolute;
       width: 12px;
       height: 12px;
@@ -1163,8 +1152,158 @@
       box-shadow: var(--hero-window-shadow);
       pointer-events: none;
       z-index: 1;
+      position: relative;
+      overflow: hidden;
       animation: hero-window-enter 1600ms cubic-bezier(0.16, 1, 0.3, 1) 420ms both;
       will-change: transform, opacity;
+    }
+
+    /* High-Fidelity Vector Cosmic Tree inside Hero Window */
+    .hero-window__tree-wrap {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-window__tree-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Floating Website Fruit Cards */
+    .tree-fruit {
+      position: absolute;
+      z-index: 2;
+      pointer-events: auto;
+      animation: fruit-float 5s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .tree-fruit--bot { animation-delay: -1.2s; }
+    .tree-fruit--card { animation-delay: -2.5s; }
+    .tree-fruit--store { animation-delay: -3.8s; }
+
+    @keyframes fruit-float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(1deg); }
+      100% { transform: translateY(4px) rotate(-1deg); }
+    }
+
+    .tree-fruit__card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(149, 128, 255, 0.22);
+      border-radius: 10px;
+      padding: 6px 8px;
+      box-shadow: 0 6px 20px rgba(15, 16, 24, 0.08), 0 2px 6px rgba(124, 58, 237, 0.12);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      min-width: 78px;
+    }
+
+    .tree-fruit__card:hover {
+      transform: translateY(-4px) scale(1.06);
+      border-color: rgba(149, 128, 255, 0.55);
+      box-shadow: 0 10px 28px rgba(124, 58, 237, 0.2), 0 4px 10px rgba(15, 16, 24, 0.12);
+    }
+
+    .tree-fruit__header {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-bottom: 5px;
+    }
+
+    .tree-fruit__dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(15, 16, 24, 0.25);
+    }
+    .tree-fruit__dot.red { background: #FF5F56; }
+    .tree-fruit__dot.yellow { background: #FFBD2E; }
+    .tree-fruit__dot.green { background: #27C93F; }
+
+    .tree-fruit__tag {
+      font-size: 9px;
+      font-weight: 600;
+      color: #7C3AED;
+      margin-left: auto;
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+
+    .tree-fruit__icon-tg {
+      color: #0088cc;
+      display: flex;
+      align-items: center;
+    }
+
+    .tree-fruit__body {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .tree-fruit__line {
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(15, 16, 24, 0.12);
+    }
+    .tree-fruit__line.title { width: 85%; background: rgba(124, 58, 237, 0.4); }
+    .tree-fruit__line.desc { width: 65%; }
+    .tree-fruit__line.short { width: 45px; background: rgba(15, 16, 24, 0.35); }
+    .tree-fruit__line.micro { width: 30px; }
+
+    .tree-fruit__btn {
+      width: 24px;
+      height: 5px;
+      border-radius: 3px;
+      background: #9580FF;
+      margin-top: 2px;
+    }
+
+    .tree-fruit__body.chat {
+      gap: 4px;
+    }
+    .tree-fruit__msg {
+      height: 5px;
+      border-radius: 3px;
+    }
+    .tree-fruit__msg.msg-in { width: 70%; background: rgba(0, 136, 204, 0.2); align-self: flex-start; }
+    .tree-fruit__msg.msg-out { width: 60%; background: #9580FF; align-self: flex-end; }
+
+    .tree-fruit__body.profile {
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+    }
+    .tree-fruit__avatar {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #9580FF, #3B82F6);
+      flex-shrink: 0;
+    }
+    .tree-fruit__info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .tree-fruit__body.grid {
+      flex-direction: row;
+      gap: 4px;
+    }
+    .tree-fruit__item {
+      width: 28px;
+      height: 20px;
+      border-radius: 4px;
+      background: rgba(124, 58, 237, 0.12);
+      border: 1px solid rgba(124, 58, 237, 0.2);
     }
     @keyframes hero-window-enter {
       from {
@@ -1263,6 +1402,8 @@
       letter-spacing: -0.02em;
       text-align: left;
       text-wrap: balance;
+      position: relative;
+      z-index: 3;
     }
     .hero-window__title span {
       color: var(--hero-window-accent);
@@ -1274,6 +1415,8 @@
       font-size: clamp(14px, 1.25vw, 17px);
       line-height: 1.65;
       text-align: left;
+      position: relative;
+      z-index: 3;
     }
     .hero-astronaut {
       grid-column: 1;
@@ -2881,7 +3024,7 @@
       border-color: var(--accent);
     }
     [data-theme="light"] .section-bg2 {
-      background: linear-gradient(180deg, rgba(15, 16, 24, 0.045) 0%, rgba(79, 70, 229, 0.04) 100%);
+      background: transparent;
     }
     [data-theme="light"] .nav {
       border-bottom-color: rgba(15, 16, 24, 0.10);
@@ -3905,43 +4048,6 @@
     <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
     <div class="hero-blob hero-blob-3 deco-pace-fastest" aria-hidden="true"></div>
     <div class="hero-layout">
-      <div class="hero-window">
-        <h1 class="hero-window__title"><span>Antares</span> – место, где идеи обретают жизнь.</h1>
-        <p class="hero-window__description">
-          Создаём лендинги, сайты-визитки и Telegram-боты для малого бизнеса.
-          Берём на себя дизайн, разработку и запуск – заявки сразу приходят в Telegram.
-        </p>
-      </div>
-      <div class="hero-astronaut" id="hero-astronaut">
-        <div class="hero-astronaut__stage">
-          <figure class="hero-astronaut__figure">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  images/hero-astronaut-full.webp 497w,
-                  images/hero-astronaut-full@2x.webp 994w
-                "
-                sizes="(max-width: 767px) 82vw, 833px"
-              />
-              <img
-                src="images/hero-astronaut-full.png"
-                srcset="
-                  images/hero-astronaut-full.png 497w,
-                  images/hero-astronaut-full@2x.png 994w
-                "
-                sizes="(max-width: 767px) 82vw, 833px"
-                alt="Космонавт в скафандре приветствует вас"
-                width="497"
-                height="965"
-                decoding="sync"
-                loading="eager"
-                fetchpriority="high"
-              />
-            </picture>
-          </figure>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -4540,13 +4646,12 @@
       }
 
       function starPalette(isDark) {
-        const black = [0, 0, 0];
         return {
-          white: isDark ? [255, 255, 255] : black,
-          blue: isDark ? [168, 198, 255] : black,
-          violet: isDark ? [155, 148, 255] : black,
-          warm: isDark ? [255, 220, 180] : black,
-          glow: isDark ? [108, 99, 255] : black,
+          white: isDark ? [180, 170, 255] : [61, 22, 89],
+          blue: isDark ? [130, 160, 255] : [30, 27, 75],
+          violet: isDark ? [149, 128, 255] : [75, 30, 110],
+          warm: isDark ? [170, 150, 255] : [50, 25, 85],
+          glow: isDark ? [108, 99, 255] : [45, 20, 80],
         };
       }
 
@@ -4580,18 +4685,50 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.clearRect(0, 0, w, h);
 
-        const rand = mulberry32(isDark ? 42857 : 91391);
+        const rand = mulberry32(42857);
         const palette = starPalette(isDark);
         const area = w * h;
         const count = Math.floor(Math.min(
-          Math.floor(area / (isDark ? 310 : 670)),
-          isDark ? 6500 : 2900
-        ) * 0.8);
+          Math.floor(area / 310),
+          6500
+        ) * 0.44);
         const stars = [];
+        const MIN_DIST = 10;
+        const cellSize = MIN_DIST;
+        const gridCols = Math.ceil((w + 4) / cellSize);
+        const gridRows = Math.ceil((h + 4) / cellSize);
+        const grid = new Array(gridCols * gridRows);
+
+        function tooClose(px, py) {
+          const cx = Math.floor((px + 2) / cellSize);
+          const cy = Math.floor((py + 2) / cellSize);
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              const nx = cx + dx, ny = cy + dy;
+              if (nx < 0 || ny < 0 || nx >= gridCols || ny >= gridRows) continue;
+              const cell = grid[ny * gridCols + nx];
+              if (!cell) continue;
+              for (let k = 0; k < cell.length; k++) {
+                const ddx = cell[k][0] - px, ddy = cell[k][1] - py;
+                if (ddx * ddx + ddy * ddy < MIN_DIST * MIN_DIST) return true;
+              }
+            }
+          }
+          return false;
+        }
+
+        function addToGrid(px, py) {
+          const cx = Math.floor((px + 2) / cellSize);
+          const cy = Math.floor((py + 2) / cellSize);
+          const idx = cy * gridCols + cx;
+          if (!grid[idx]) grid[idx] = [];
+          grid[idx].push([px, py]);
+        }
 
         for (let i = 0; i < count; i += 1) {
           const pos = pickStarPosition(rand, w, h);
           if (pos.x < -2 || pos.y < -2 || pos.x > w + 2 || pos.y > h + 2) continue;
+          if (tooClose(pos.x, pos.y)) continue;
 
           const roll = rand();
           let radius;
@@ -4600,25 +4737,25 @@
           let glow = false;
 
           if (roll > 0.996) {
-            radius = 1.5 + rand() * 1.1;
+            radius = (1.5 + rand() * 1.1) * 1.1;
             alpha = 0.82 + rand() * 0.18;
             rgb = rand() > 0.45 ? palette.blue : palette.violet;
             glow = true;
           } else if (roll > 0.985) {
-            radius = 1.0 + rand() * 0.7;
+            radius = (1.0 + rand() * 0.7) * 1.1;
             alpha = 0.62 + rand() * 0.28;
             rgb = rand() > 0.55 ? palette.blue : palette.white;
             glow = rand() > 0.35;
           } else if (roll > 0.94) {
-            radius = 0.55 + rand() * 0.45;
+            radius = (0.55 + rand() * 0.45) * 1.1;
             alpha = 0.34 + rand() * 0.34;
             if (rand() > 0.82) rgb = palette.blue;
             else if (rand() > 0.96) rgb = palette.warm;
           } else if (roll > 0.72) {
-            radius = 0.32 + rand() * 0.28;
+            radius = (0.32 + rand() * 0.28) * 1.1;
             alpha = 0.18 + rand() * 0.28;
           } else {
-            radius = 0.15 + rand() * 0.22;
+            radius = (0.15 + rand() * 0.22) * 1.1;
             alpha = 0.08 + rand() * 0.2;
           }
 
@@ -4633,10 +4770,13 @@
             } else if (roll > 0.94) {
               finalAlpha = Math.min(1, finalAlpha * 1.28);
             } else if (roll > 0.72) {
-              finalAlpha = Math.min(1, finalAlpha * 1.14);
+              finalAlpha = Math.min(1, finalAlpha * 1.6);
+            } else {
+              finalAlpha = Math.min(1, finalAlpha * 2.0);
             }
           }
 
+          addToGrid(pos.x, pos.y);
           stars.push({
             x: pos.x,
             y: pos.y,
@@ -4661,29 +4801,6 @@
           renderCosmosStars(document.documentElement.getAttribute('data-theme') || 'dark');
         }, 180);
       }, { passive: true });
-    })();
-
-    // Космонавт: по пояс → полный рост при скролле вниз
-    (function initHeroAstronautReveal() {
-      const root = document.getElementById('hero-astronaut');
-      if (!root) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const flySpeed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--astro-fly-speed')) || 0.72;
-
-      function update() {
-        const vh = window.innerHeight;
-        const range = Math.max(vh * 0.307, 107);
-        const scrollY = window.scrollY;
-        const progress = Math.min(1, Math.max(0, scrollY / range));
-        root.style.setProperty('--reveal', String(progress));
-        root.style.setProperty('--fly-y', String(-scrollY * flySpeed));
-        root.classList.toggle('is-scrolling', scrollY > 0);
-      }
-
-      update();
-      window.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update, { passive: true });
     })();
 
     // Параллакс dev-декора: скролл вниз → элементы вверх, скролл вверх → вниз
@@ -4783,14 +4900,6 @@
       const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 56;
       const gap = 24;
       const head = target.querySelector('.section-head') || target;
-
-      if (href === '#projects') {
-        const astronaut = document.getElementById('hero-astronaut');
-        if (astronaut) {
-          astronaut.style.setProperty('--reveal', '1');
-          astronaut.style.setProperty('--fly-y', String(-window.scrollY * (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--astro-fly-speed')) || 0.72)));
-        }
-      }
 
       requestAnimationFrame(() => {
         const top = head.getBoundingClientRect().top + window.pageYOffset - navH - gap;
