@@ -86,24 +86,32 @@ nav.scrolled{background:rgba(7,6,8,.92);border-bottom:1px solid var(--border);ba
 .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 .nav-mobile{
   display:none;position:fixed;inset:0;z-index:199;
-  background:rgba(7,6,8,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  padding:100px 24px 44px;
-  flex-direction:column;align-items:center;justify-content:center;
-  gap:36px;opacity:0;pointer-events:none;
-  transition:opacity .3s ease;
+  background:rgba(7,6,8,.98);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  padding:calc(var(--nav-h) + 36px) 24px 44px;
+  flex-direction:column;align-items:center;justify-content:space-between;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
 }
-.nav-mobile.open{display:flex;opacity:1;pointer-events:all;}
+.nav-mobile.open{display:flex!important;opacity:1!important;pointer-events:all!important;}
 
-.nm-links{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;width:100%;}
+.nm-links{list-style:none;padding:0;margin:auto 0;display:flex;flex-direction:column;align-items:center;gap:28px;width:100%;}
+.nm-links li{width:100%;text-align:center;}
 .nm-links a{
-  font-size:24px;font-weight:600;color:var(--muted);
-  text-decoration:none;letter-spacing:-.02em;text-align:center;
+  display:inline-block;font-size:24px;font-weight:600;color:var(--muted);
+  text-decoration:none;letter-spacing:-.02em;
   transition:color .2s,transform .2s;
 }
 .nm-links a:hover,.nm-links a:active{color:var(--text);transform:scale(1.05);}
 
-.nm-action{width:100%;max-width:280px;display:flex;justify-content:center;margin-top:10px;}
-.nm-cta{width:100%;text-align:center;justify-content:center;font-size:15px;padding:14px 28px;}
+.nm-cta-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;max-width:280px;padding:15px 28px;
+  background:var(--accent)!important;color:#070608!important;
+  font-size:15px!important;font-weight:700!important;
+  border-radius:12px;text-decoration:none;margin-top:auto;
+  box-shadow:0 8px 24px rgba(200,255,62,.2);
+  transition:opacity .2s,transform .2s;
+}
+.nm-cta-btn:hover{opacity:.9;transform:translateY(-2px);}
 
 /* ══ BUTTONS ══ */
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;padding:13px 26px;border-radius:10px;text-decoration:none;cursor:pointer;border:none;transition:opacity .2s,transform .22s cubic-bezier(.22,1,.36,1);}
@@ -669,15 +677,13 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   </div>
 </nav>
 <div class="nav-mobile" id="mobile-menu" role="dialog" aria-label="Мобильное меню">
-  <nav class="nm-links">
-    <a href="#about">О нас</a>
-    <a href="#services">Услуги</a>
-    <a href="#portfolio">Проекты</a>
-    <a href="#process">Процесс</a>
-  </nav>
-  <div class="nm-action">
-    <a href="#contact" class="btn btn-primary nm-cta">Написать нам</a>
-  </div>
+  <ul class="nm-links">
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#portfolio">Проекты</a></li>
+    <li><a href="#process">Процесс</a></li>
+  </ul>
+  <a href="#contact" class="nm-cta-btn">Написать нам</a>
 </div>
 
 <!-- ══ HERO ══ -->
