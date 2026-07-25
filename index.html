@@ -84,10 +84,44 @@ nav.scrolled{background:rgba(7,6,8,.92);border-bottom:1px solid var(--border);ba
 .nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
 .nav-burger.open span:nth-child(2){opacity:0;}
 .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
-.nav-mobile{display:none;position:fixed;inset:0;z-index:199;background:rgba(7,6,8,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .3s;}
-.nav-mobile.open{opacity:1;pointer-events:all;}
-.nav-mobile a{font-size:26px;font-weight:600;color:var(--muted);text-decoration:none;letter-spacing:-.02em;transition:color .2s;}
-.nav-mobile a:hover{color:var(--text);}
+.nav-mobile{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(8,7,12,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  padding:24px 20px 32px;
+  opacity:0;pointer-events:none;transform:translateY(-14px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+.nav-mobile.open{display:flex;opacity:1;pointer-events:all;transform:translateY(0);}
+.nm-inner{max-width:440px;margin:0 auto;width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
+.nm-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.nm-logo{height:28px;}
+.nm-tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+
+.nm-nav{display:flex;flex-direction:column;gap:10px;margin:auto 0;}
+.nm-link{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-radius:14px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  color:var(--text);font-size:17px;font-weight:600;text-decoration:none;
+  transition:background .25s,border-color .25s,transform .25s;
+}
+.nm-link:hover,.nm-link:active{
+  background:rgba(var(--ar),.09);border-color:rgba(var(--ar),.25);color:var(--accent);transform:translateX(5px);
+}
+.nm-n{font-size:11px;font-weight:600;color:var(--faint);letter-spacing:.05em;}
+.nm-arr{margin-left:auto;font-size:15px;color:var(--faint);transition:transform .2s,color .2s;}
+.nm-link:hover .nm-arr{transform:translateX(4px);color:var(--accent);}
+
+.nm-foot{display:flex;flex-direction:column;gap:16px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);}
+.nm-cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--accent);color:#070608;font-size:15px;font-weight:700;
+  padding:15px 24px;border-radius:12px;text-decoration:none;
+  transition:opacity .2s,transform .2s;
+}
+.nm-cta:hover{opacity:.9;transform:translateY(-2px);}
+.nm-soc{display:flex;align-items:center;justify-content:center;gap:20px;}
+.nm-soc a{font-size:12.5px;color:var(--muted);text-decoration:none;font-weight:500;}
 
 /* ══ BUTTONS ══ */
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;padding:13px 26px;border-radius:10px;text-decoration:none;cursor:pointer;border:none;transition:opacity .2s,transform .22s cubic-bezier(.22,1,.36,1);}
@@ -520,15 +554,17 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
     align-items:center;
     justify-content:center;
     margin:10px auto;
-    transform:scale(0.72);
+    transform:scale(0.68);
     transform-origin:center center;
   }
 
   /* Horizontal swipe carousels for cards below */
-  .bento-grid, .svc-grid, .why-grid {
+  .bento-grid, .svc-grid, .why-grid, .pf-list {
     display:flex !important;
+    flex-direction:row !important;
     grid-template-columns:none !important;
     overflow-x:auto !important;
+    overflow-y:hidden !important;
     scroll-snap-type:x mandatory;
     scroll-behavior:smooth;
     -webkit-overflow-scrolling:touch;
@@ -539,14 +575,14 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
     padding-right:20px;
     gap:14px;
   }
-  .bento-grid::-webkit-scrollbar, .svc-grid::-webkit-scrollbar, .why-grid::-webkit-scrollbar {
+  .bento-grid::-webkit-scrollbar, .svc-grid::-webkit-scrollbar, .why-grid::-webkit-scrollbar, .pf-list::-webkit-scrollbar {
     height:4px;
   }
-  .bento-grid::-webkit-scrollbar-track, .svc-grid::-webkit-scrollbar-track, .why-grid::-webkit-scrollbar-track {
+  .bento-grid::-webkit-scrollbar-track, .svc-grid::-webkit-scrollbar-track, .why-grid::-webkit-scrollbar-track, .pf-list::-webkit-scrollbar-track {
     background:rgba(255,255,255,.05);
     border-radius:2px;
   }
-  .bento-grid::-webkit-scrollbar-thumb, .svc-grid::-webkit-scrollbar-thumb, .why-grid::-webkit-scrollbar-thumb {
+  .bento-grid::-webkit-scrollbar-thumb, .svc-grid::-webkit-scrollbar-thumb, .why-grid::-webkit-scrollbar-thumb, .pf-list::-webkit-scrollbar-thumb {
     background:var(--accent);
     border-radius:2px;
   }
@@ -559,7 +595,25 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
 
   .wi { flex:0 0 260px; scroll-snap-align:start; }
 
-  .pf-item { grid-template-columns:1fr; gap:20px; }
+  /* Mobile Portfolio horizontal cards with background */
+  .pf-item {
+    flex:0 0 290px;
+    scroll-snap-align:start;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:14px !important;
+    padding:20px !important;
+    background:var(--card) !important;
+    border:1px solid var(--border) !important;
+    border-radius:var(--r) !important;
+    border-top:1px solid var(--border) !important;
+    border-bottom:1px solid var(--border) !important;
+  }
+  .pf-list:hover .pf-item { opacity:1 !important; }
+  .pf-img { order:-1; width:100%; aspect-ratio:16/10; }
+  .pf-name { font-size:20px !important; margin-bottom:6px !important; }
+  .pf-desc { font-size:13px !important; margin-bottom:12px !important; }
+
   .proc-grid { grid-template-columns:1fr; gap:40px; }
   .proc-sticky { position:relative; top:auto; }
   .contact-grid { grid-template-columns:1fr; gap:40px; }
@@ -574,12 +628,19 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   .nav-mobile{display:flex;}
 
   .enc-scene {
-    transform:scale(0.62);
-    margin:-25px auto -30px;
+    transform:scale(0.54);
+    margin:-45px auto -45px;
   }
 
   .hero-stats{gap:14px;flex-wrap:wrap;justify-content:center;}
   .hs-div{display:none;}
+}
+
+@media(max-width:440px){
+  .enc-scene {
+    transform:scale(0.44);
+    margin:-65px auto -65px;
+  }
 }
   </style>
 </head>
@@ -607,11 +668,28 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   </div>
 </nav>
 <div class="nav-mobile" id="mobile-menu" role="dialog" aria-label="Мобильное меню">
-  <a href="#about">О нас</a>
-  <a href="#services">Услуги</a>
-  <a href="#portfolio">Проекты</a>
-  <a href="#process">Процесс</a>
-  <a href="#contact">Написать нам</a>
+  <div class="nm-inner">
+    <div class="nm-header">
+      <img src="images/antares-logo-light.png" alt="Antares" class="nm-logo" />
+      <span class="nm-tag">Навигация</span>
+    </div>
+    <nav class="nm-nav">
+      <a href="#about" class="nm-link"><span class="nm-n">01</span><span>О нас</span><span class="nm-arr">→</span></a>
+      <a href="#services" class="nm-link"><span class="nm-n">02</span><span>Услуги</span><span class="nm-arr">→</span></a>
+      <a href="#portfolio" class="nm-link"><span class="nm-n">03</span><span>Проекты</span><span class="nm-arr">→</span></a>
+      <a href="#process" class="nm-link"><span class="nm-n">04</span><span>Процесс</span><span class="nm-arr">→</span></a>
+    </nav>
+    <div class="nm-foot">
+      <a href="#contact" class="nm-cta">
+        <span>Написать нам</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="nm-soc">
+        <a href="https://t.me/AntaresAgensy" target="_blank" rel="noopener">✈️ Telegram</a>
+        <a href="https://www.instagram.com/antares_agensy/" target="_blank" rel="noopener">📸 Instagram</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ══ HERO ══ -->
