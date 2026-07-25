@@ -86,42 +86,27 @@ nav.scrolled{background:rgba(7,6,8,.92);border-bottom:1px solid var(--border);ba
 .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 .nav-mobile{
   display:none;position:fixed;inset:0;z-index:999;
-  background:rgba(8,7,12,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
-  padding:24px 20px 32px;
-  opacity:0;pointer-events:none;transform:translateY(-14px);
-  transition:opacity .35s ease, transform .35s ease;
+  background:rgba(7,6,8,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  padding:24px 20px 40px;
+  flex-direction:column;align-items:center;justify-content:space-between;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
 }
-.nav-mobile.open{display:flex;opacity:1;pointer-events:all;transform:translateY(0);}
-.nm-inner{max-width:440px;margin:0 auto;width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
-.nm-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08);}
-.nm-logo{height:28px;}
-.nm-tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+.nav-mobile.open{display:flex;opacity:1;pointer-events:all;}
 
-.nm-nav{display:flex;flex-direction:column;gap:10px;margin:auto 0;}
-.nm-link{
-  display:flex;align-items:center;gap:14px;
-  padding:14px 18px;border-radius:14px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
-  color:var(--text);font-size:17px;font-weight:600;text-decoration:none;
-  transition:background .25s,border-color .25s,transform .25s;
-}
-.nm-link:hover,.nm-link:active{
-  background:rgba(var(--ar),.09);border-color:rgba(var(--ar),.25);color:var(--accent);transform:translateX(5px);
-}
-.nm-n{font-size:11px;font-weight:600;color:var(--faint);letter-spacing:.05em;}
-.nm-arr{margin-left:auto;font-size:15px;color:var(--faint);transition:transform .2s,color .2s;}
-.nm-link:hover .nm-arr{transform:translateX(4px);color:var(--accent);}
+.nm-close-wrap{width:100%;display:flex;justify-content:flex-end;}
+.nm-close-btn{background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;padding:6px 12px;transition:color .2s;}
+.nm-close-btn:hover{color:var(--text);}
 
-.nm-foot{display:flex;flex-direction:column;gap:16px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);}
-.nm-cta{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  background:var(--accent);color:#070608;font-size:15px;font-weight:700;
-  padding:15px 24px;border-radius:12px;text-decoration:none;
-  transition:opacity .2s,transform .2s;
+.nm-links{display:flex;flex-direction:column;align-items:center;gap:28px;margin:auto 0;}
+.nm-links a{
+  font-size:24px;font-weight:600;color:var(--muted);
+  text-decoration:none;letter-spacing:-.02em;
+  transition:color .2s,transform .2s;
 }
-.nm-cta:hover{opacity:.9;transform:translateY(-2px);}
-.nm-soc{display:flex;align-items:center;justify-content:center;gap:20px;}
-.nm-soc a{font-size:12.5px;color:var(--muted);text-decoration:none;font-weight:500;}
+.nm-links a:hover,.nm-links a:active{color:var(--text);transform:scale(1.04);}
+
+.nm-action{width:100%;max-width:320px;margin-top:auto;}
+.nm-cta{width:100%;justify-content:center;font-size:15px;padding:14px 28px;}
 
 /* ══ BUTTONS ══ */
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;padding:13px 26px;border-radius:10px;text-decoration:none;cursor:pointer;border:none;transition:opacity .2s,transform .22s cubic-bezier(.22,1,.36,1);}
@@ -554,7 +539,7 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
     align-items:center;
     justify-content:center;
     margin:10px auto;
-    transform:scale(0.68);
+    transform:scale(0.62);
     transform-origin:center center;
   }
 
@@ -587,22 +572,22 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
     border-radius:2px;
   }
 
-  .bento { flex:0 0 280px; scroll-snap-align:start; min-height:210px; }
-  .bento-span2 { flex:0 0 310px; }
+  .bento { flex:0 0 260px; scroll-snap-align:start; min-height:auto !important; padding:20px 18px !important; }
+  .bento-span2 { flex:0 0 290px; }
 
-  .svc { flex:0 0 295px; scroll-snap-align:start; }
-  .svc-grid .svc-full { flex:0 0 320px; }
+  .svc { flex:0 0 290px; scroll-snap-align:start; }
+  .svc-grid .svc-full { flex:0 0 310px; }
 
-  .wi { flex:0 0 260px; scroll-snap-align:start; }
+  .wi { flex:0 0 250px; scroll-snap-align:start; }
 
   /* Mobile Portfolio horizontal cards with background */
   .pf-item {
-    flex:0 0 290px;
+    flex:0 0 280px;
     scroll-snap-align:start;
     display:flex !important;
     flex-direction:column !important;
     gap:14px !important;
-    padding:20px !important;
+    padding:18px !important;
     background:var(--card) !important;
     border:1px solid var(--border) !important;
     border-radius:var(--r) !important;
@@ -611,8 +596,8 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   }
   .pf-list:hover .pf-item { opacity:1 !important; }
   .pf-img { order:-1; width:100%; aspect-ratio:16/10; }
-  .pf-name { font-size:20px !important; margin-bottom:6px !important; }
-  .pf-desc { font-size:13px !important; margin-bottom:12px !important; }
+  .pf-name { font-size:19px !important; margin-bottom:4px !important; }
+  .pf-desc { font-size:12.5px !important; margin-bottom:10px !important; }
 
   .proc-grid { grid-template-columns:1fr; gap:40px; }
   .proc-sticky { position:relative; top:auto; }
@@ -627,19 +612,33 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   .nav-burger{display:flex;}
   .nav-mobile{display:flex;}
 
+  /* Scaled down further on phone screens so dial + all 4 mode buttons fit 100% */
   .enc-scene {
-    transform:scale(0.54);
-    margin:-45px auto -45px;
+    transform:scale(0.44);
+    margin:-65px auto -65px;
   }
 
   .hero-stats{gap:14px;flex-wrap:wrap;justify-content:center;}
   .hs-div{display:none;}
+
+  /* Centered footer on mobile phones */
+  footer { padding:32px 18px !important; }
+  .fi-inner {
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    gap:14px !important;
+  }
+  .foot-logo { order:1; }
+  .foot-copy { order:2; margin:4px 0; }
+  .foot-links { order:3; justify-content:center !important; }
 }
 
 @media(max-width:440px){
   .enc-scene {
-    transform:scale(0.44);
-    margin:-65px auto -65px;
+    transform:scale(0.38);
+    margin:-85px auto -85px;
   }
 }
   </style>
@@ -668,27 +667,17 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   </div>
 </nav>
 <div class="nav-mobile" id="mobile-menu" role="dialog" aria-label="Мобильное меню">
-  <div class="nm-inner">
-    <div class="nm-header">
-      <img src="images/antares-logo-light.png" alt="Antares" class="nm-logo" />
-      <span class="nm-tag">Навигация</span>
-    </div>
-    <nav class="nm-nav">
-      <a href="#about" class="nm-link"><span class="nm-n">01</span><span>О нас</span><span class="nm-arr">→</span></a>
-      <a href="#services" class="nm-link"><span class="nm-n">02</span><span>Услуги</span><span class="nm-arr">→</span></a>
-      <a href="#portfolio" class="nm-link"><span class="nm-n">03</span><span>Проекты</span><span class="nm-arr">→</span></a>
-      <a href="#process" class="nm-link"><span class="nm-n">04</span><span>Процесс</span><span class="nm-arr">→</span></a>
-    </nav>
-    <div class="nm-foot">
-      <a href="#contact" class="nm-cta">
-        <span>Написать нам</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <div class="nm-soc">
-        <a href="https://t.me/AntaresAgensy" target="_blank" rel="noopener">✈️ Telegram</a>
-        <a href="https://www.instagram.com/antares_agensy/" target="_blank" rel="noopener">📸 Instagram</a>
-      </div>
-    </div>
+  <div class="nm-close-wrap">
+    <button class="nm-close-btn" id="menu-close-btn" aria-label="Закрыть меню">✕</button>
+  </div>
+  <nav class="nm-links">
+    <a href="#about">О нас</a>
+    <a href="#services">Услуги</a>
+    <a href="#portfolio">Проекты</a>
+    <a href="#process">Процесс</a>
+  </nav>
+  <div class="nm-action">
+    <a href="#contact" class="btn btn-primary nm-cta">Написать нам</a>
   </div>
 </div>
 
@@ -1066,10 +1055,16 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ── Mobile menu ── */
-const burger=document.getElementById('burger-btn'),mm=document.getElementById('mobile-menu');
-const tog=o=>{burger.classList.toggle('open',o);mm.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o));document.body.style.overflow=o?'hidden':'';};
-burger.addEventListener('click',()=>tog(!burger.classList.contains('open')));
-mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tog(false)));
+const burger=document.getElementById('burger-btn'),mm=document.getElementById('mobile-menu'),mClose=document.getElementById('menu-close-btn');
+const tog=o=>{
+  if(burger) burger.classList.toggle('open',o);
+  if(mm) mm.classList.toggle('open',o);
+  if(burger) burger.setAttribute('aria-expanded',String(o));
+  document.body.style.overflow=o?'hidden':'';
+};
+if(burger) burger.addEventListener('click',()=>tog(!mm.classList.contains('open')));
+if(mClose) mClose.addEventListener('click',()=>tog(false));
+if(mm) mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tog(false)));
 
 /* ── Encoder ticks ── */
 (function(){
