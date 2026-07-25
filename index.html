@@ -85,23 +85,24 @@ nav.scrolled{background:rgba(7,6,8,.92);border-bottom:1px solid var(--border);ba
 .nav-burger.open span:nth-child(2){opacity:0;}
 .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 .nav-mobile{
-  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;
+  display:none;position:fixed;inset:0;z-index:199;
   background:rgba(7,6,8,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  padding:calc(var(--nav-h) + 40px) 24px 48px;
-  flex-direction:column;align-items:center;justify-content:space-between;
-  opacity:0;pointer-events:none;transition:opacity .3s ease;
+  padding:100px 24px 44px;
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:36px;opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
 }
 .nav-mobile.open{display:flex;opacity:1;pointer-events:all;}
 
-.nm-links{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;width:100%;margin:auto 0;}
+.nm-links{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;width:100%;}
 .nm-links a{
   font-size:24px;font-weight:600;color:var(--muted);
   text-decoration:none;letter-spacing:-.02em;text-align:center;
   transition:color .2s,transform .2s;
 }
-.nm-links a:hover,.nm-links a:active{color:var(--text);transform:scale(1.04);}
+.nm-links a:hover,.nm-links a:active{color:var(--text);transform:scale(1.05);}
 
-.nm-action{width:100%;max-width:300px;margin-top:auto;display:flex;justify-content:center;}
+.nm-action{width:100%;max-width:280px;display:flex;justify-content:center;margin-top:10px;}
 .nm-cta{width:100%;text-align:center;justify-content:center;font-size:15px;padding:14px 28px;}
 
 /* ══ BUTTONS ══ */
@@ -1068,26 +1069,31 @@ if(mm) mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tog(fa
 (function(){
   const wrap=document.getElementById('enc-ticks');
   if(!wrap)return;
-  const N=60,R=168;
-  for(let i=0;i<N;i++){
-    const angle=(360/N)*i;
-    const isAccent=i%6===0;
-    const len=isAccent?14:7;
-    const t=document.createElement('div');
-    const rad=angle*Math.PI/180;
-    const cx=220,cy=220;
-    const x1=cx+R*Math.sin(rad);
-    const y1=cy-R*Math.cos(rad);
-    t.style.cssText=`
-      position:absolute;
-      width:${isAccent?2:1.5}px;
-      height:${len}px;
-      background:${isAccent?'rgba(200,255,62,.65)':'rgba(255,255,255,.1)'};
-      border-radius:1px;
-      left:${x1-1}px;
-      top:${y1}px;
-      transform:rotate(${angle}deg);
-      transform-origin:top center;
+  wrap.innerHTML = '';
+  const rect = wrap.getBoundingClientRect();
+  const radius = (rect.width || 344) / 2;
+  const cx = radius;
+  const cy = radius;
+  const R = radius - 6;
+  const N = 60;
+  for(let i = 0; i < N; i++){
+    const angle = (360 / N) * i;
+    const isAccent = i % 6 === 0;
+    const len = isAccent ? 12 : 6;
+    const t = document.createElement('div');
+    const rad = angle * Math.PI / 180;
+    const x = cx + (R - len/2) * Math.sin(rad);
+    const y = cy - (R - len/2) * Math.cos(rad);
+    t.style.cssText = `
+      position: absolute;
+      width: ${isAccent ? 2 : 1.2}px;
+      height: ${len}px;
+      background: ${isAccent ? 'rgba(200,255,62,.85)' : 'rgba(255,255,255,.16)'};
+      border-radius: 1px;
+      left: ${x}px;
+      top: ${y}px;
+      transform: translate(-50%, -50%) rotate(${angle}deg);
+      transform-origin: center center;
     `;
     wrap.appendChild(t);
   }
