@@ -85,28 +85,24 @@ nav.scrolled{background:rgba(7,6,8,.92);border-bottom:1px solid var(--border);ba
 .nav-burger.open span:nth-child(2){opacity:0;}
 .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 .nav-mobile{
-  display:none;position:fixed;inset:0;z-index:999;
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;
   background:rgba(7,6,8,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  padding:24px 20px 40px;
+  padding:calc(var(--nav-h) + 40px) 24px 48px;
   flex-direction:column;align-items:center;justify-content:space-between;
   opacity:0;pointer-events:none;transition:opacity .3s ease;
 }
 .nav-mobile.open{display:flex;opacity:1;pointer-events:all;}
 
-.nm-close-wrap{width:100%;display:flex;justify-content:flex-end;}
-.nm-close-btn{background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;padding:6px 12px;transition:color .2s;}
-.nm-close-btn:hover{color:var(--text);}
-
-.nm-links{display:flex;flex-direction:column;align-items:center;gap:28px;margin:auto 0;}
+.nm-links{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;width:100%;margin:auto 0;}
 .nm-links a{
   font-size:24px;font-weight:600;color:var(--muted);
-  text-decoration:none;letter-spacing:-.02em;
+  text-decoration:none;letter-spacing:-.02em;text-align:center;
   transition:color .2s,transform .2s;
 }
 .nm-links a:hover,.nm-links a:active{color:var(--text);transform:scale(1.04);}
 
-.nm-action{width:100%;max-width:320px;margin-top:auto;}
-.nm-cta{width:100%;justify-content:center;font-size:15px;padding:14px 28px;}
+.nm-action{width:100%;max-width:300px;margin-top:auto;display:flex;justify-content:center;}
+.nm-cta{width:100%;text-align:center;justify-content:center;font-size:15px;padding:14px 28px;}
 
 /* ══ BUTTONS ══ */
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;padding:13px 26px;border-radius:10px;text-decoration:none;cursor:pointer;border:none;transition:opacity .2s,transform .22s cubic-bezier(.22,1,.36,1);}
@@ -533,15 +529,33 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   .hero-actions{justify-content:center;}
   .hero-stats{justify-content:center;}
 
-  /* Encoder mobile layout & scaling */
+  /* Encoder mobile 260px compact container: 100% fit on any phone screen */
   .enc-scene{
     display:flex;
     align-items:center;
     justify-content:center;
-    margin:10px auto;
-    transform:scale(0.62);
-    transform-origin:center center;
+    width:260px !important;
+    height:260px !important;
+    margin:24px auto !important;
+    transform:none !important;
   }
+  .enc-ticks{inset:10px !important;}
+  .enc-disk{inset:20px !important;}
+
+  .enc-float{
+    padding:6px 10px !important;
+    gap:6px !important;
+    border-radius:12px !important;
+    box-shadow:0 10px 24px rgba(0,0,0,.5) !important;
+  }
+  .ef-ico{width:24px !important;height:24px !important;font-size:11px !important;}
+  .ef-text .ef-t{font-size:11px !important;}
+  .ef-text .ef-s{font-size:9px !important;opacity:.8;}
+
+  .ef-1{top:-16px !important;left:-24px !important;right:auto !important;bottom:auto !important;}
+  .ef-2{top:-16px !important;right:-24px !important;left:auto !important;bottom:auto !important;}
+  .ef-3{bottom:-16px !important;right:-24px !important;left:auto !important;top:auto !important;}
+  .ef-4{bottom:-16px !important;left:-24px !important;right:auto !important;top:auto !important;}
 
   /* Horizontal swipe carousels for cards below */
   .bento-grid, .svc-grid, .why-grid, .pf-list {
@@ -612,12 +626,6 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   .nav-burger{display:flex;}
   .nav-mobile{display:flex;}
 
-  /* Scaled down further on phone screens so dial + all 4 mode buttons fit 100% */
-  .enc-scene {
-    transform:scale(0.44);
-    margin:-65px auto -65px;
-  }
-
   .hero-stats{gap:14px;flex-wrap:wrap;justify-content:center;}
   .hs-div{display:none;}
 
@@ -633,13 +641,6 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   .foot-logo { order:1; }
   .foot-copy { order:2; margin:4px 0; }
   .foot-links { order:3; justify-content:center !important; }
-}
-
-@media(max-width:440px){
-  .enc-scene {
-    transform:scale(0.38);
-    margin:-85px auto -85px;
-  }
 }
   </style>
 </head>
@@ -667,9 +668,6 @@ footer{border-top:1px solid var(--border);padding:26px 36px;}
   </div>
 </nav>
 <div class="nav-mobile" id="mobile-menu" role="dialog" aria-label="Мобильное меню">
-  <div class="nm-close-wrap">
-    <button class="nm-close-btn" id="menu-close-btn" aria-label="Закрыть меню">✕</button>
-  </div>
   <nav class="nm-links">
     <a href="#about">О нас</a>
     <a href="#services">Услуги</a>
