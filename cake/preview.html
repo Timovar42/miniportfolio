@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><script>
+  (function() {
+    if (window.location.pathname.endsWith('/cake') || window.location.pathname.endsWith('/catalog') || window.location.pathname.endsWith('/constructor')) {
+      window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+    }
+    if (window.location.pathname.endsWith('/index.html')) {
+      history.replaceState(null, '', window.location.pathname.slice(0, -10) + window.location.search + window.location.hash);
+    }
+  })();
+</script>
+  <meta charset="utf-8">
+  <title>Ready Cakes Preview</title>
+  <style>
+    body { font-family: sans-serif; background: #fafafa; padding: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: white; padding: 15px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <h2>Catalog Ready Cakes Photo Inspection</h2>
+  <div class="grid">
+    <div class="card"><h3>1. Захерторте (ready-1.jpg)</h3><img src="/miniportfolio/cake/cakes/ready-1.jpg" /></div>
+    <div class="card"><h3>2. Муссовый торт (ready-2.jpg)</h3><img src="/miniportfolio/cake/cakes/ready-2.jpg" /></div>
+    <div class="card"><h3>3. Тирамису (ready-3.jpg)</h3><img src="/miniportfolio/cake/cakes/ready-3.jpg" /></div>
+    <div class="card"><h3>4. Шоколадный гато (ready-4.jpg)</h3><img src="/miniportfolio/cake/cakes/ready-4.jpg" /></div>
+    <div class="card"><h3>5. Шоколадный торт премиум (ready-5.jpg)</h3><img src="/miniportfolio/cake/cakes/ready-5.jpg" /></div>
+    <div class="card"><h3>6. Тирамису в форме (ready-6.jpg)</h3><img src="/miniportfolio/cake/cakes/ready-6.jpg" /></div>
+  </div>
+<script>if (location.protocol === 'file:') { document.querySelectorAll('img[src^="/miniportfolio/cake/"]').forEach(function(i){ i.src = i.getAttribute('src').replace('/miniportfolio/cake/', './'); }); }</script></body>
+</html>
