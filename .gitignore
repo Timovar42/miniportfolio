@@ -8,6 +8,7 @@ cake/.next/
 cake/.env
 cake/.env*.local
 cake/data/
+тортики/
 
 # Базы данных
 *.db
