@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head><script>
+  (function() {
+    if (window.location.pathname.endsWith('/cake') || window.location.pathname.endsWith('/catalog') || window.location.pathname.endsWith('/constructor')) {
+      window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+    }
+    if (window.location.pathname.endsWith('/index.html')) {
+      history.replaceState(null, '', window.location.pathname.slice(0, -10) + window.location.search + window.location.hash);
+    }
+  })();
+</script><script>
   if (window.location.pathname.endsWith('/cake')) window.location.replace(window.location.pathname + '/');
   if (window.location.pathname.endsWith('/index.html')) { history.replaceState(null, '', window.location.pathname.slice(0, -10) + window.location.search + window.location.hash); }
 </script><script>if (window.location.pathname.endsWith('/index.html')) { history.replaceState(null, '', window.location.pathname.slice(0, -10) + window.location.search + window.location.hash); }</script>
@@ -448,5 +457,5 @@
     </article>
   </div>
 
-</body>
+<script>if (location.protocol === 'file:') { document.querySelectorAll('img[src^="/miniportfolio/cake/"]').forEach(function(i){ i.src = i.getAttribute('src').replace('/miniportfolio/cake/', '../'); }); }</script></body>
 </html>
