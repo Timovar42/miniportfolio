@@ -10,16 +10,6 @@
       history.replaceState(null, '', p.slice(0, -10) + window.location.search + window.location.hash);
     }
   })();
-</script><script>
-  (function() {
-    var p = window.location.pathname;
-    if (p.endsWith('/cake') || p.endsWith('/catalog') || p.endsWith('/constructor')) {
-      window.location.replace(p + '/' + window.location.search + window.location.hash);
-    }
-    if (p.endsWith('/index.html')) {
-      history.replaceState(null, '', p.slice(0, -10) + window.location.search + window.location.hash);
-    }
-  })();
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
