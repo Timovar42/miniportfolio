@@ -10,6 +10,16 @@
       history.replaceState(null, '', p.slice(0, -10) + window.location.search + window.location.hash);
     }
   })();
+</script><script>
+  (function() {
+    var p = window.location.pathname;
+    if (p.endsWith('/cake') || p.endsWith('/catalog') || p.endsWith('/constructor')) {
+      window.location.replace(p + '/' + window.location.search + window.location.hash);
+    }
+    if (p.endsWith('/index.html')) {
+      history.replaceState(null, '', p.slice(0, -10) + window.location.search + window.location.hash);
+    }
+  })();
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -455,5 +465,5 @@
     </article>
   </div>
 
-<script>if (location.protocol === 'file:') { document.querySelectorAll('a[href^="/miniportfolio/cake/"]').forEach(function(a){ a.href = a.getAttribute('href').replace('/miniportfolio/cake/', './'); }); document.querySelectorAll('img[src^="/miniportfolio/cake/"]').forEach(function(i){ i.src = i.getAttribute('src').replace('/miniportfolio/cake/', './'); }); }</script></body>
+<script>if (location.protocol === 'file:') { document.querySelectorAll('a[href^="/miniportfolio/cake/"]').forEach(function(a){ a.href = a.getAttribute('href').replace('/miniportfolio/cake/', './'); }); document.querySelectorAll('img[src^="/miniportfolio/cake/"]').forEach(function(i){ i.src = i.getAttribute('src').replace('/miniportfolio/cake/', './'); }); document.querySelectorAll('script[src^="/miniportfolio/cake/"]').forEach(function(s){ s.src = s.getAttribute('src').replace('/miniportfolio/cake/', './'); }); document.querySelectorAll('link[href^="/miniportfolio/cake/"]').forEach(function(l){ l.href = l.getAttribute('href').replace('/miniportfolio/cake/', './'); }); }</script></body>
 </html>
