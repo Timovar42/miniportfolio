@@ -2,11 +2,12 @@
 <html lang="ru">
 <head><script>
   (function() {
-    if (window.location.pathname.endsWith('/cake') || window.location.pathname.endsWith('/catalog') || window.location.pathname.endsWith('/constructor')) {
-      window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+    var p = window.location.pathname;
+    if (p.endsWith('/cake') || p.endsWith('/catalog') || p.endsWith('/constructor')) {
+      window.location.replace(p + '/' + window.location.search + window.location.hash);
     }
-    if (window.location.pathname.endsWith('/index.html')) {
-      history.replaceState(null, '', window.location.pathname.slice(0, -10) + window.location.search + window.location.hash);
+    if (p.endsWith('/index.html')) {
+      history.replaceState(null, '', p.slice(0, -10) + window.location.search + window.location.hash);
     }
   })();
 </script>
