@@ -1348,7 +1348,7 @@ if(form){
     if (target === 'tg') {
       statusEl.style.display='block';
       statusEl.style.color='var(--accent)';
-      statusEl.innerHTML='✓ <b>Заявка сформирована!</b> Переходим в Telegram... (текст уже вставлен в поле ввода)';
+      statusEl.innerHTML='✓ <b>Заявка сформирована!</b> Переходим в Telegram... (текст подставлен в поле ввода)';
 
       const encodedText = encodeURIComponent(formattedText);
       const tgUrl = `https://t.me/AntaresAgensy?text=${encodedText}`;
@@ -1361,10 +1361,13 @@ if(form){
     } else {
       statusEl.style.display='block';
       statusEl.style.color='var(--accent)';
-      statusEl.innerHTML='✓ <b>Текст заявки скопирован!</b> Переходим на главную страницу профиля Instagram @antares_agensy...';
+      statusEl.innerHTML='✓ <b>Заявка сформирована!</b> Переходим в Instagram Direct...';
+
+      const encodedText = encodeURIComponent(formattedText);
+      const instaUrl = `https://ig.me/m/antares_agensy?text=${encodedText}`;
 
       setTimeout(() => {
-        window.open('https://www.instagram.com/antares_agensy/', '_blank');
+        window.open(instaUrl, '_blank');
         btn.disabled=false;
         if(btnT) btnT.textContent='Отправить заявку';
       }, 500);
